@@ -1,10 +1,13 @@
 package it.medicCore.Models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,6 +20,9 @@ public class Comuni {
     @ManyToOne
     @JoinColumn(name = "codice_istat")
     private Regioni codiceIstatRegione;
+
+    @OneToMany(mappedBy = "comune")
+    private List<Ospedali> ospedali;
 
     @Column(name = "comune_nome")
     private String nomeComune;
