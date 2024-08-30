@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import java.util.*;
 /* 
 CREATE TABLE Medici (
     id_medico INT PRIMARY KEY AUTO_INCREMENT,
@@ -18,6 +19,7 @@ CREATE TABLE Medici (
 );
 */
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Medici {
@@ -25,6 +27,9 @@ public class Medici {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_medico;
+
+    @OneToMany(mappedBy = "medico_di_base")
+    private List<Pazienti> pazienti;
 
     @Column(name = "nome")
     private String nome;

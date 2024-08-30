@@ -24,6 +24,9 @@ public class Comuni {
     @OneToMany(mappedBy = "comune")
     private List<Ospedali> ospedali;
 
+    @OneToMany(mappedBy = "comune")
+    private List<Pazienti> pazienti;
+
     @Column(name = "comune_nome")
     private String nomeComune;
 
