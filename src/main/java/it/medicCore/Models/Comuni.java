@@ -64,4 +64,20 @@ public class Comuni {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
+
+    public List<Ospedali> getOspedali() {
+        return ospedali;
+    }
+
+    public void setOspedali(List<Ospedali> ospedali) {
+        this.ospedali = ospedali;
+    }
+
+    public List<Pazienti> getPazienti() {
+        return pazienti;
+    }
+
+    public void setPazienti(List<Pazienti> pazienti) {
+        this.pazienti = pazienti;
+    }
 }

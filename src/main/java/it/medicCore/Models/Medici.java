@@ -85,4 +85,12 @@ public class Medici {
         this.specializzazione = specializzazione;
     }
 
+    public List<Pazienti> getPazienti() {
+        return pazienti;
+    }
+
+    public void setPazienti(List<Pazienti> pazienti) {
+        this.pazienti = pazienti;
+    }
+
 }

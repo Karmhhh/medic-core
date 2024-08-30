@@ -1,4 +1,5 @@
 package it.medicCore.Models;
+
 import java.util.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,10 +23,13 @@ public class Ospedali {
     @Column(name = "indirizzo")
     private String indirizzo;
 
-    @ManyToOne
-    @JoinColumn(name = "comune_appartenenza") 
-    private Comuni comune;
+    @OneToMany(mappedBy = "is_supervisore")
+    private List<Supervisori> supervisori;
     
+    @ManyToOne
+    @JoinColumn(name = "comune_appartenenza")
+    private Comuni comune;
+
     @OneToMany(mappedBy = "id_reparto")
     private List<Reparto> reparto;
 
@@ -68,6 +72,13 @@ public class Ospedali {
     public void setReparto(List<Reparto> reparto) {
         this.reparto = reparto;
     }
-    
-}
 
+    public List<Supervisori> getSupervisori() {
+        return supervisori;
+    }
+
+    public void setSupervisori(List<Supervisori> supervisori) {
+        this.supervisori = supervisori;
+    }
+
+}
