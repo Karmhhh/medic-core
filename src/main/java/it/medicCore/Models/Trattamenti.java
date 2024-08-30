@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 
 import java.util.*;
 import java.time.*;
@@ -40,9 +39,9 @@ public class Trattamenti {
     @JoinColumn(name = "appuntamento")
     private Appuntamenti appuntamento;
 
-    @OneToOne(mappedBy = "id_cartella")
+    @OneToMany(mappedBy = "id_cartella")
     private List<CartelleCliniche> cartelleCliniche;
-    @OneToMany(mappedBy = "id_prescrizioni_mediche")
+    @OneToMany(mappedBy = "id_prescrizione_medica")
     private List<PrescrizioniMediche> prescrizioni_medica;
 
     public int getId_trattamento() {

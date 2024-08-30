@@ -9,6 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import java.time.*;
+
 /*
  * 
 12. Tabella Prescrizioni_Mediche
@@ -31,8 +32,8 @@ public class PrescrizioniMediche {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id_prescrizioni_mediche;
-    
+    private int id_prescrizione_medica;
+
     @Column(name = "data_prescrizione")
     private LocalDate data_prescrizione;
 
@@ -40,19 +41,19 @@ public class PrescrizioniMediche {
     private String dosaggio;
 
     @ManyToOne
-    @JoinColumn(name="trattamento_associato")
+    @JoinColumn(name = "trattamento_associato")
     private Trattamenti trattamento;
 
     @ManyToOne
-    @JoinColumn(name="farmaco")
+    @JoinColumn(name = "farmaco")
     private Farmaco farmaco;
 
-    public int getId_prescrizioni_mediche() {
-        return id_prescrizioni_mediche;
+    public int getid_prescrizione_medica() {
+        return id_prescrizione_medica;
     }
 
-    public void setId_prescrizioni_mediche(int id_prescrizioni_mediche) {
-        this.id_prescrizioni_mediche = id_prescrizioni_mediche;
+    public void setid_prescrizione_medica(int id_prescrizione_medica) {
+        this.id_prescrizione_medica = id_prescrizione_medica;
     }
 
     public LocalDate getData_prescrizione() {

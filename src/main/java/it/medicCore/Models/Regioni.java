@@ -1,6 +1,8 @@
 package it.medicCore.Models;
 
 import java.util.List;
+
+import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,12 +16,15 @@ public class Regioni {
 
     @Id
     @Column(name = "codice_istat")
+    @JsonbProperty("codice_istat")
     private Integer codiceIstat;
 
     @Column(name = "regione_nome")
+    @JsonbProperty("regione_nome")
     private String nomeRegione;
 
     @Column(name = "capoluogo")
+    @JsonbProperty("capoluogo")
     private String capoluogo;
 
     @OneToMany(mappedBy = "codiceIstatRegione")
