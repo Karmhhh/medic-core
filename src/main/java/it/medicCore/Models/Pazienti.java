@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 /*
  * CREATE TABLE Pazienti (
@@ -21,6 +22,7 @@ import jakarta.persistence.ManyToOne;
 );
 
  */
+import java.util.*;
 @Entity
 public class Pazienti {
     
@@ -32,6 +34,8 @@ public class Pazienti {
     @Column(name = "nome")
     private String nome;
     
+    @OneToOne(mappedBy = "id_cartella")
+    private List<CartelleCliniche> cartelleCliniche;
     @Column(name = "cognome")
     private String cognome;
 
@@ -79,5 +83,11 @@ public class Pazienti {
     }
     public void setMedico_di_base(Medici medico_di_base) {
         this.medico_di_base = medico_di_base;
+    }
+    public List<CartelleCliniche> getCartelleCliniche() {
+        return cartelleCliniche;
+    }
+    public void setCartelleCliniche(List<CartelleCliniche> cartelleCliniche) {
+        this.cartelleCliniche = cartelleCliniche;
     }
 }
