@@ -2,6 +2,8 @@ package it.medicCore.Models;
 
 import java.util.List;
 
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,10 +17,12 @@ import jakarta.persistence.Table;
 public class Comuni {
     @Id
     @Column(name = "procom")
+    @JsonbProperty("comuni")
     private Integer procom;
 
     @ManyToOne
     @JoinColumn(name = "codice_istat")
+    @JsonbTransient
     private Regioni codiceIstatRegione;
 
     @OneToMany(mappedBy = "comune")
@@ -28,9 +32,11 @@ public class Comuni {
     private List<Pazienti> pazienti;
 
     @Column(name = "comune_nome")
+    @JsonbProperty("comune_nome")
     private String nomeComune;
 
     @Column(name = "provincia_nome")
+    @JsonbProperty("provincia_nome")
     private String provincia;
 
     public Integer getProcom() {

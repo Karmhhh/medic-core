@@ -15,23 +15,24 @@ prezzo_pubblico double
 );
  */
 import jakarta.persistence.OneToMany;
+
 @Entity
 public class Farmaco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id_farmaco;
 
     @Column(name = "nome")
     private String nome;
 
-    @Column(name= "confezione")
+    @Column(name = "confezione")
     private String confezione;
-    
-    @Column(name= "ditta")
+
+    @Column(name = "ditta")
     private String ditta;
-    
-    @Column(name= "prezzo_pubblico")
+
+    @Column(name = "prezzo_pubblico")
     private double prezzo_pubblico;
 
     @OneToMany(mappedBy = "id_prescrizione_medica")

@@ -23,9 +23,9 @@ public class Ospedali {
     @Column(name = "indirizzo")
     private String indirizzo;
 
-    @OneToMany(mappedBy = "is_supervisore")
+    @OneToMany(mappedBy = "id_supervisore")
     private List<Supervisori> supervisori;
-    
+
     @ManyToOne
     @JoinColumn(name = "comune_appartenenza")
     private Comuni comune;
